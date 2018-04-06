@@ -64,6 +64,8 @@ const fightReducer = (state = fightState, action) => {
         monster1CurrentHP: state.monster1CurrentHP - action.payload.damage,
         monster1DefenseTurns: state.monster1DefenseTurns - 1,
         activePlayer: toggledPlayer,
+        monster2Class: 'lightSpeedOut', // does the hitting
+        monster1Class: 'shake', // is hit
       };
     }
     case 'START_DEFEND': {
@@ -78,10 +80,8 @@ const fightReducer = (state = fightState, action) => {
           monster1DefenseTurns: 2,
           monster2DefenseTurns: state.monster2DefenseTurns - 1,
           activePlayer: toggledPlayer,
-          wasAttacked: true,
-          monster1Class: 'shake', // is hit
-          monster2Class: 'lightSpeedOut', // does the hitting
-
+          monster1Class: 'tada',
+          monster2Class: 'base-case',
         };
       } // the other monster
       console.log('mosnter2');
@@ -90,6 +90,8 @@ const fightReducer = (state = fightState, action) => {
         monster2DefenseTurns: 2,
         monster1DefenseTurns: state.monster1DefenseTurns - 1,
         activePlayer: toggledPlayer,
+        monster2Class: 'tada',
+        monster1Class: 'base-case',
       };
     }
     // state becomes too nested. Decided to flatten out
